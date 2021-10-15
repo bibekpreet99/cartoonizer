@@ -38,7 +38,7 @@ def cartoonize(img, path):
     cv2.imwrite("./static/images/test.png", cartoon_image)
 
 
-@app.route('/', method = ["GET", "POST"])
+@app.route('/', methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
          if request.files["file"]:
