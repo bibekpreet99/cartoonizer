@@ -17,15 +17,15 @@ def index():
     #     return render_template("home.html")
     return render_template("index.html")
 
-@app.route('/file', methods = ["POST"])
-def file():
-    if request.method == "POST":
-        print(request.files["file"])
-        if request.files["file"]:
+# @app.route('/file', methods = ["POST"])
+# def file():
+#     if request.method == "POST":
+#         print(request.files["file"])
+#         if request.files["file"]:
             
-            f = request.files["file"]
-            filename = secure_filename(f.filename)
-            f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
-            return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
-    return redirect(url_for('index'))
+#             f = request.files["file"]
+#             filename = secure_filename(f.filename)
+#             f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+#             cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
+#             return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
+#     return redirect(url_for('index'))
