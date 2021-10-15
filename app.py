@@ -1,8 +1,9 @@
 from flask import Flask, render_template, redirect, request, url_for, send_file
-#from cartoonize import cartoonize
 from werkzeug.utils import secure_filename
+
 import os
 import cv2
+
 import numpy as np
 
 app = Flask(__name__, static_url_path="/static")
@@ -51,7 +52,7 @@ def cartoonize(img, path):
     output = cv2.bitwise_and(edgePreservingImage, edgePreservingImage, mask=edgeImage)
 
     cartoon_image = cv2.stylization(image, sigma_s=150, sigma_r=0.25) 
-    cv2.imwrite("/static/images/test.png", cartoon_image)
+    cv2.imwrite("./static/images/test.png", cartoon_image)
 # @app.route('/file', methods = ["POST"])
 # def file():
 #     if request.method == "POST":
