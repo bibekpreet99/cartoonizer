@@ -21,6 +21,8 @@ def index():
             cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename))           
             return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
     else:
+        if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+            os.mkdir(app.config["UPLOAD_FOLDER"])
         for img in os.listdir(app.config["UPLOAD_FOLDER"]):
             os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
         return render_template("index.html")
