@@ -18,6 +18,8 @@ def after_request(response):
 @app.route('/', methods= ["GET", "POST"])
 def home():
     if request.method == "GET":
+        if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+            os.mkdir(app.config["UPLOAD_FOLDER"])
         for img in os.listdir(app.config["UPLOAD_FOLDER"]):
             os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
         return render_template("home.html")
