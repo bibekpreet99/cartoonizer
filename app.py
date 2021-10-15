@@ -52,7 +52,7 @@ def cartoonize(img, path):
     output = cv2.bitwise_and(edgePreservingImage, edgePreservingImage, mask=edgeImage)
 
     cartoon_image = cv2.stylization(image, sigma_s=150, sigma_r=0.25) 
-    cv2.imwrite("./static/images/test.png", cartoon_image)
+    cv2.imwrite("static/images/test.png", cartoon_image)
 # @app.route('/file', methods = ["POST"])
 # def file():
 #     if request.method == "POST":
