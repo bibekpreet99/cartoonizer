@@ -8,7 +8,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-app.config["UPLOAD_FOLDER"] = os.path.abspath(__file__) + '/static/images'
+app.config["UPLOAD_FOLDER"] = os.path.dirname(__file__) + '/static/images'
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
