@@ -15,14 +15,14 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route('/', methods= ["GET", "POST"])
+@app.route('/')
 def home():
-    if request.method == "GET":
-        if not os.path.exists(app.config["UPLOAD_FOLDER"]):
-            os.mkdir(app.config["UPLOAD_FOLDER"])
-        for img in os.listdir(app.config["UPLOAD_FOLDER"]):
-            os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
-        return render_template("home.html")
+    # if request.method == "GET":
+    #     if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+    #         os.mkdir(app.config["UPLOAD_FOLDER"])
+    #     for img in os.listdir(app.config["UPLOAD_FOLDER"]):
+    #         os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
+    #     return render_template("home.html")
     return render_template("home.html")
 
 @app.route('/file', methods = ["POST"])
