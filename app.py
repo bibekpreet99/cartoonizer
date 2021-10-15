@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 app.debug = True
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config["UPLOAD_FOLDER"] = './images'
+app.config["UPLOAD_FOLDER"] = 'static/images'
 
 @app.after_request
 def after_request(response):
