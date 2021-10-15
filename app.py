@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, url_for, send_file
+from flask import Flask, render_template, redirect, request, url_for, send_file, flash
 from werkzeug.utils import secure_filename
 
 import os
@@ -18,7 +18,7 @@ def index():
             f = request.files["file"]
             filename = secure_filename(f.filename)
             f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
+            cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename))           
             return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
     else:
         for img in os.listdir(app.config["UPLOAD_FOLDER"]):
@@ -26,7 +26,7 @@ def index():
         return render_template("index.html")
 
 
-def cartoonize(img, path):
+def cartoonize(img):
     image = cv2.imread(img)
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
