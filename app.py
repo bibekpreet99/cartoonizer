@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, url_for, send_file
-from cartoonize import cartoonize
+#from cartoonize import cartoonize
 from werkzeug.utils import secure_filename
 import os
 
