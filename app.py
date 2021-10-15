@@ -8,14 +8,14 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = 'static/images'
 
 @app.route('/')
-def home():
+def index():
     # if request.method == "GET":
     #     if not os.path.exists(app.config["UPLOAD_FOLDER"]):
     #         os.mkdir(app.config["UPLOAD_FOLDER"])
     #     for img in os.listdir(app.config["UPLOAD_FOLDER"]):
     #         os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
     #     return render_template("home.html")
-    return render_template("home.html")
+    return render_template("index.html")
 
 @app.route('/file', methods = ["POST"])
 def file():
@@ -28,4 +28,4 @@ def file():
             f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
             cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
             return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
