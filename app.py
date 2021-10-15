@@ -4,16 +4,8 @@ from werkzeug.utils import secure_filename
 import os
 
 app = Flask(__name__)
-app.debug = True
-app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config["UPLOAD_FOLDER"] = 'static/images'
 
-@app.after_request
-def after_request(response):
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
-    return response
+app.config["UPLOAD_FOLDER"] = 'static/images'
 
 @app.route('/')
 def home():
