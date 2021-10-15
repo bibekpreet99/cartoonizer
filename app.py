@@ -7,7 +7,23 @@ import numpy as np
 
 app = Flask(__name__)
 
-#app.config["UPLOAD_FOLDER"] = 'static/images'
+app.config["UPLOAD_FOLDER"] = 'static/images'
+
+@app.route('/', methods = ["GET", "POST"])
+def index():
+    if request.method == "POST":
+         if request.files["file"]:
+                
+            f = request.files["file"]
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
+            return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
+    else:
+        for img in os.listdir(app.config["UPLOAD_FOLDER"]):
+            os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
+        return render_template("index.html")
+
 
 def cartoonize(img, path):
     image = cv2.imread(img)
@@ -36,25 +52,6 @@ def cartoonize(img, path):
 
     cartoon_image = cv2.stylization(image, sigma_s=150, sigma_r=0.25) 
     cv2.imwrite("./static/images/test.png", cartoon_image)
-
-
-@app.route('/', methods = ["GET", "POST"])
-def index():
-    if request.method == "POST":
-         if request.files["file"]:
-                
-            f = request.files["file"]
-            filename = secure_filename(f.filename)
-            f.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            cartoonize(os.path.join(app.config["UPLOAD_FOLDER"], filename), os.path.join(app.config["UPLOAD_FOLDER"]))           
-            return send_file(os.path.join(app.config["UPLOAD_FOLDER"], "test.png"), as_attachment = True)
-    #     if not os.path.exists(app.config["UPLOAD_FOLDER"]):
-    #         os.mkdir(app.config["UPLOAD_FOLDER"])
-    #     for img in os.listdir(app.config["UPLOAD_FOLDER"]):
-    #         os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
-    #     return render_template("home.html")
-    return render_template("index.html")
-
 # @app.route('/file', methods = ["POST"])
 # def file():
 #     if request.method == "POST":
