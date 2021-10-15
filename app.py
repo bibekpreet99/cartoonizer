@@ -6,9 +6,9 @@ import cv2
 
 import numpy as np
 
-app = Flask(__name__, static_url_path="/static")
+app = Flask(__name__)
 
-app.config["UPLOAD_FOLDER"] = 'static/images/'
+app.config["UPLOAD_FOLDER"] = './static/images/'
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
