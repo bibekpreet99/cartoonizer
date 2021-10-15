@@ -21,6 +21,7 @@ def home():
         for img in os.listdir(app.config["UPLOAD_FOLDER"]):
             os.remove(os.path.join(app.config["UPLOAD_FOLDER"], img))
         return render_template("home.html")
+    return render_template("home.html")
 
 @app.route('/file', methods = ["POST"])
 def file():
