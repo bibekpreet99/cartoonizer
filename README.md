@@ -1,4 +1,26 @@
-# cartoonizer
+# Cartoonizer
+
+### Overview
+This website uses opencv to cartoonize any image uploaded.
+Stack Used
+1. Flask
+2. OpenCV
+3. HTML/CSS
 
 ## Live Link
 https://cartoonizerr.herokuapp.com
+
+### Novelty
+1. 
+
+### FlowChart
+
+![flow](screenshots/flow.png)
+
+
+### Screenshots
+
+![one](screenshots/img1.PNG)
+![one](screenshots/img2.jpg)
+![one](screenshots/img3.png)
+
