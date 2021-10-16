@@ -7,20 +7,15 @@ Stack Used
 2. OpenCV
 3. HTML/CSS
 
-## Live Link
+### Live Link
 https://cartoonizerr.herokuapp.com
 
 ### Novelty
 1. 
 
-### FlowChart
-
-![flow](screenshots/flow.png)
-
-
 ### Screenshots
 
-####Screen
+#### Screen
 ![one](screenshots/img1.PNG)
 
 #### Before
