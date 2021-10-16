@@ -1,7 +1,7 @@
 # Cartoonizer
 
 ### Overview
-This website uses opencv to cartoonize any image uploaded.
+This website uses opencv to cartoonize any image uploaded.(Max Size for image upload - 500KB)
 Stack Used
 1. Flask
 2. OpenCV
@@ -11,7 +11,8 @@ Stack Used
 https://cartoonizerr.herokuapp.com
 
 ### Novelty
-1. 
+1. Simple and easy User Interface.
+2. After converting, the prompt appears to download it.
 
 ### Screenshots
 
