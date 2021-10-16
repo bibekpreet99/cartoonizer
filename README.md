@@ -20,7 +20,12 @@ https://cartoonizerr.herokuapp.com
 
 ### Screenshots
 
+####Screen
 ![one](screenshots/img1.PNG)
+
+#### Before
 ![one](screenshots/img2.jpg)
+
+#### After
 ![one](screenshots/img3.png)
 
